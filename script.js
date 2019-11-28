@@ -24,9 +24,14 @@ function writePassword() {
 
 function copyToClipboard() {
     // BONUS 
+    let pwText = document.getElementById('password');
+    pwText.select();
+    document.execCommand('copy');
+    alert('copied to clipboard!');
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 // BONUS EVENT LISTENER
+copyBtn.addEventListener('click', copyToClipboard);
