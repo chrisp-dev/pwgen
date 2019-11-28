@@ -12,14 +12,22 @@
 
 <body class="container">
   <header>
-    <h1>Password Generator</h1>
+    <h1 class="text-center text-black-50">Password Generator</h1>
   </header>
-  <h2>Generate a Password</h2>
-  <textarea readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
-  <button id="generate">Generate Password</button>
-  <button id="copy">
-    Copy to Clipboard
-  </button>
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Generate a Password</h2>
+      <hr>
+      <textarea class="form-control text-center mb-3" style="border:2px dashed grey" readonly id="password" placeholder="Your Secure Password" aria-label="Generated Password"></textarea>
+      <hr>
+      <div class="d-flex flex-row justify-content-between">
+        <button style="border-radius:33px;" class="btn btn-lg btn-danger" id="generate">Generate Password</button>
+        <button style="border-radius:33px;" class="btn btn-lg btn-secondary disabled" id="copy">
+          Copy to Clipboard
+        </button>
+      </div>
+    </div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
