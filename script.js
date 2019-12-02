@@ -4,12 +4,13 @@
 var generateBtn = document.querySelector("#generate");
 var copyBtn = document.querySelector("#copy");
 
+// create arrays to hold possible password values
 const numbers = [0,1,2,3,4,5,6,7,8,9];
 let uppers = [], lowers = [];
-
 const specialChars = ['!','@','#','$','%','^','&','*','(',')','?','[',']'];
 // console.log("TCL: specialChars", specialChars)
 
+// Generate array of upper and lowercase characters
 for (let i = 65; i < 91; i++) {
     uppers.push(String.fromCharCode(i));
     lowers.push(String.fromCharCode(i).toLowerCase());
@@ -22,7 +23,14 @@ for (let i = 65; i < 91; i++) {
 function generatePassword() {
     let generatedPW = [];
     // define allowable characters and number of characters
-    let nChars = prompt("What number of characters long is the new password?");
+    let nChars = prompt("How many chars do you want in the PW?");
+
+    // error handle numbers
+    while (isNaN(parseFloat(nChars))) {
+        alert('Please enter a number');
+        nChars = prompt("How many chars do you want in the PW?");
+    }
+
     let upperCase = confirm("Would you like UPPERCASE characters?");
     let lowerCase = confirm("Would you like lowercase characters?");
     let special = confirm("Would you like special characters?");
