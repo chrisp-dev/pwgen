@@ -36,17 +36,21 @@ function generatePassword() {
         nChars = prompt("How many chars do you want in the PW?");
     }
 
-    let upperCase = confirm("Would you like UPPERCASE characters?");
-    let lowerCase = confirm("Would you like lowercase characters?");
-    let special = confirm("Would you like special characters?");
-    let number = confirm("Would you like numbers?");
-
     // create a new array to choose chars at random
     let randoArray = [];
-    if (upperCase)  randoArray.push(...uppers);
-    if (lowerCase)  randoArray.push(...lowers);
-    if (special)    randoArray.push(...specialChars);
-    if (number)     randoArray.push(...numbers);
+
+    while (randoArray.length === 0) {
+        alert('Please select at least 1 character type from the following prompts.');
+        let upperCase = confirm("Would you like UPPERCASE characters?");
+        let lowerCase = confirm("Would you like lowercase characters?");
+        let special = confirm("Would you like special characters?");
+        let number = confirm("Would you like numbers?");
+    
+        if (upperCase)  randoArray.push(...uppers);
+        if (lowerCase)  randoArray.push(...lowers);
+        if (special)    randoArray.push(...specialChars);
+        if (number)     randoArray.push(...numbers);
+    }
 
     // console.log('TCL: randoArray: ', randoArray);
     // choose characters at random
