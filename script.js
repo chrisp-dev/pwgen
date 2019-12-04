@@ -7,7 +7,7 @@ var copyBtn = document.querySelector("#copy");
 // create arrays to hold possible password values
 const numbers = [0,1,2,3,4,5,6,7,8,9];
 let uppers = [], lowers = [];
-const specialChars = ['!','@','#','$','%','^','&','*','(',')','?','[',']'];
+const specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~".split("");
 // console.log("TCL: specialChars", specialChars)
 
 // Generate array of upper and lowercase characters
