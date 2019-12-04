@@ -6,4 +6,4 @@
 
 [Password Generator](https://chrisp-dev.github.io/pwgen)
 
-![Password Generator Screenshot](Capture.png)
+![Password Generator Screenshot](https://github.com/chrisp-dev/pwgen/blob/master/Capture.PNG)
