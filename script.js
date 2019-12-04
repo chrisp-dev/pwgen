@@ -18,7 +18,12 @@ for (let i = 65; i < 91; i++) {
 
 // console.log('TCL: upper chars: ', uppers);
 // console.log('TCL: lower chars: ', lowers);
-
+function invalidEntry(entry) {
+    let value = parseFloat(entry);
+    // check if isNaN(value)
+    // check if value >= 8 && value <= 128
+    return isNaN(value) || value < 8 || value > 128;
+}
 //this function will fire when you click the generate password button on the page.  I've set it to alert "You've clicked a button" and return a password of password for now. Update it to make your password
 function generatePassword() {
     let generatedPW = [];
@@ -26,22 +31,26 @@ function generatePassword() {
     let nChars = prompt("How many chars do you want in the PW?");
 
     // error handle numbers
-    while (isNaN(parseFloat(nChars))) {
-        alert('Please enter a number');
+    while (invalidEntry(nChars)) {
+        alert('Please enter a number between 8 and 128');
         nChars = prompt("How many chars do you want in the PW?");
     }
 
-    let upperCase = confirm("Would you like UPPERCASE characters?");
-    let lowerCase = confirm("Would you like lowercase characters?");
-    let special = confirm("Would you like special characters?");
-    let number = confirm("Would you like numbers?");
-
     // create a new array to choose chars at random
     let randoArray = [];
-    if (upperCase)  randoArray.push(...uppers);
-    if (lowerCase)  randoArray.push(...lowers);
-    if (special)    randoArray.push(...specialChars);
-    if (number)     randoArray.push(...numbers);
+
+    while (randoArray.length === 0) {
+        alert('Please select at least 1 character type from the following prompts.');
+        let upperCase = confirm("Would you like UPPERCASE characters?");
+        let lowerCase = confirm("Would you like lowercase characters?");
+        let special = confirm("Would you like special characters?");
+        let number = confirm("Would you like numbers?");
+    
+        if (upperCase)  randoArray.push(...uppers);
+        if (lowerCase)  randoArray.push(...lowers);
+        if (special)    randoArray.push(...specialChars);
+        if (number)     randoArray.push(...numbers);
+    }
 
     // console.log('TCL: randoArray: ', randoArray);
     // choose characters at random
