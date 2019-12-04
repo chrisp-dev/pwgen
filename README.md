@@ -5,3 +5,5 @@
 ## Link to deployed GitHub Pages URL
 
 [Password Generator](https://chrisp-dev.github.io/pwgen)
+
+![Password Generator Screenshot](Capture.png)
