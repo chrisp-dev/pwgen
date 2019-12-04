@@ -18,7 +18,12 @@ for (let i = 65; i < 91; i++) {
 
 // console.log('TCL: upper chars: ', uppers);
 // console.log('TCL: lower chars: ', lowers);
-
+function invalidEntry(entry) {
+    let value = parseFloat(entry);
+    // check if isNaN(value)
+    // check if value >= 8 && value <= 128
+    return isNaN(value) || value < 8 || value > 128;
+}
 //this function will fire when you click the generate password button on the page.  I've set it to alert "You've clicked a button" and return a password of password for now. Update it to make your password
 function generatePassword() {
     let generatedPW = [];
@@ -26,8 +31,8 @@ function generatePassword() {
     let nChars = prompt("How many chars do you want in the PW?");
 
     // error handle numbers
-    while (isNaN(parseFloat(nChars))) {
-        alert('Please enter a number');
+    while (invalidEntry(nChars)) {
+        alert('Please enter a number between 8 and 128');
         nChars = prompt("How many chars do you want in the PW?");
     }
 
